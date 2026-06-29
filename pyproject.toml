@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Temporary distribution name while the `mailkite` project on PyPI is reclaimed on the
+# old account. Installs as `pip install mailkite-dev`; still imports as `import mailkite`
+# (the package dir below is unchanged). Rename back to `mailkite` once reclaimed.
+name = "mailkite-dev"
+version = "0.11.0"
+description = "Official MailKite SDK for Python — send and manage email over your own authenticated domain."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+keywords = ["mailkite", "email", "transactional", "api"]
+# `cryptography` powers the local at-rest encrypt()/decrypt() helpers; everything
+# else in the SDK is standard-library only.
+dependencies = ["cryptography>=41"]
+
+[project.urls]
+Homepage = "https://mailkite.dev/docs/libraries"
+Repository = "https://github.com/mailkite/mailkite-python"
+
+[tool.setuptools.packages.find]
+include = ["mailkite*"]
